@@ -60,6 +60,9 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6',
+            'address' => 'required|min:10',
+            'call_number' => 'required|numeric',
+            'password_confirmation' => 'required|same:password'
         ]);
     }
 
@@ -74,7 +77,10 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'no_telp' => $data['call_number'],
             'password' => bcrypt($data['password']),
+            'role' => 2
         ]);
     }
 
@@ -96,7 +102,7 @@ class AuthController extends Controller
                 $error,
             ]);
         } else {
-            return redirect($this->loginPath)
+            return redirect('/login')
                 ->with('status', 'Your account has been created, check your email to setup password.');
         }
     }

@@ -12,6 +12,7 @@ class Category extends Model
      * @var string
      */
     protected $table = 'categories';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,6 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'name',
     ];
 

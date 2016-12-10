@@ -75,7 +75,7 @@ class ForumController extends Controller
     {
         try{
 
-            $post = Post::where('slug', '=', $slug)->first();
+            $post = Post::where('id', '=', $slug)->first();
 
             return view('pages.reply', compact('post'));
         }

@@ -68,7 +68,7 @@
                 <i class="fa fa-minus"></i></button>
                 </a>
               </div>
-            <p><a href="http://localhost/forumtesting/public/question/{{$post->slug}}">{{ $post->title }}</a></p>
+            <p><a href="question/{{$post->id}}">{{ $post->title }}</a></p>
             <p class="text-right">By : {{ $post->user->name }}</p>
             </h4>
 
