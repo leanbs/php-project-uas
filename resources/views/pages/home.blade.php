@@ -16,33 +16,42 @@
         </ol>
 
         <div class="carousel-inner" role="listbox" style=" width:100%; height: 500px !important;">
+          @if (empty($slide))
             <div class="item active">
-                <img class="first-slide" src="{{ asset('assets/img/574.jpg') }}" alt="First Slide">
+                <img class="second-slide" src="" alt="Kosong">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h3>Test Header</h3>
-                        <p>Input Text Here</p>
+                        <p>Tidak ada slide yang ditampilkan saat ini.</p>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <img class="second-slide" src="{{ asset('assets/img/576.jpg') }}" alt="Second Slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h3>Test Header 2</h3>
-                        <p>Input Text Here</p>
+          @else
+            <?php $i = 1; ?>
+            @foreach ($slide as $value)
+              @if ($i == 1)
+                <div class="item active">
+                    <img class="second-slide" src="{{ $value->image_path }}/{{ $value->image_name }}" alt="First Slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h3>{{ $value->title }}</h3>
+                            <p><?php echo $value->info; ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <img class="second-slide" src="{{ asset('assets/img/577.jpg') }}" alt="Third Slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h3>Test Header 3</h3>
-                        <p>Input Text Here</p>
+                <?php $i += 1; ?>
+              @else
+                <div class="item">
+                    <img class="second-slide" src="{{ $value->image_path }}/{{ $value->image_name }}" alt="Second Slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h3>{{ $value->title }}</h3>
+                            <p><?php echo $value->info; ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+              @endif
+            @endforeach
+          @endif
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

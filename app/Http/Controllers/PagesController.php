@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Post;
+use App\Slide;
 
 class PagesController extends Controller
 {
@@ -22,7 +23,8 @@ class PagesController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-
-    	return view('pages.home', compact('posts'));
+        $slide = Slide::where('status', '=', 1)->get(); 
+    	return view('pages.home', compact('posts'))
+                    ->with('slide', $slide);
     }
 }

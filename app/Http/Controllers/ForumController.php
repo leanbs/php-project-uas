@@ -20,7 +20,7 @@ class ForumController extends Controller
      * @var array
      */
     protected $rules = [
-        'title'   => 'required|max:30',
+        'title'   => 'required',
         'category' => 'required',
         'body'   => 'required|min:10',
     ];
@@ -117,7 +117,7 @@ class ForumController extends Controller
                 $post->delete();
             }
 
-            return redirect()->back();
+            return redirect('/');
         }
         catch(ModelNotFoundException $ex)
         {
@@ -129,7 +129,7 @@ class ForumController extends Controller
     {
         try{
 
-            $reply = Reply::findOrFail($request['post_id']);
+            $reply = Reply::findOrFail($request['reply_id']);
 
             if(Auth::User()->id == $reply->user_id)
             {

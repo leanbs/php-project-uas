@@ -73,4 +73,14 @@ Route::post('modalHapusKegiatan', 'InformasiKegiatanController@postModalHapusKeg
 /** Handle Pengurus Punguan routes */
 Route::get('pengurus_punguan', 'PengurusPunguanController@manage');
 
+/** Handle Slide routes */
+Route::get('slide_gambar', 'SlideGambarController@manage');
+Route::get('modalTambahSlide', 'SlideGambarController@getModalTambahSlide');
+Route::post('modalTambahSlide', 'SlideGambarController@postModalTambahSlide');
+Route::get('modalUbahSlide/{id}', 'SlideGambarController@getModalUbahSlide');
+Route::post('modalUbahSlide', 'SlideGambarController@postModalUbahSlide');
+Route::get('modalHapusSlide/{id}', 'SlideGambarController@getModalHapusSlide');
+Route::post('modalHapusSlide', 'SlideGambarController@postModalHapusSlide');
+Route::post('turnOnSlide', 'SlideGambarController@postTurnOnSlide');
+Route::post('turnOffSlide', 'SlideGambarController@postTurnOffSlide');
 

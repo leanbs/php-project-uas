@@ -9,8 +9,9 @@
       <div class="well">
         <div class="media">
           <div class="media-body">
-            <h4 class="media-heading">{{ $post->title }}</h4>
+            <h4 class="media-heading"><b>{{ $post->title }}</b></h4>
             <p class="text-right">By : {{ $post->user->name }}</p>
+            <div style="width: 100%; border-bottom: 2px solid #cccccc; "></div>
             <p><?php echo $post->body; ?></p>
             <ul class="list-inline list-unstyled">
               <li><span><i class="glyphicon glyphicon-calendar"></i> {{ $post->created_at->diffForHumans()}}</span></li>
@@ -35,10 +36,12 @@
       <div class="well">
         <div class="media">
           <div class="media-body">
-          <p class="text-right">By : {{ $post->user->name }}</p>
+          <p><b>RE: {{ $post->title }}</b></p>
+          <p class="text-right">By : {{ $reply->user->name }}</p>
+          <div style="width: 100%; border-bottom: 2px solid #cccccc; "></div>
             <p><?php echo $reply->body; ?></p>
             <ul class="list-inline list-unstyled">
-              <li><span><i class="glyphicon glyphicon-calendar"></i> {{ $post->created_at->diffForHumans()}}</span></li>
+              <li><span><i class="glyphicon glyphicon-calendar"></i> {{ $reply->created_at->diffForHumans()}}</span></li>
             </ul>
           </div>
         </div>
@@ -78,6 +81,8 @@
     @endif
 
   </div> <!-- /container -->
+
+  @endsection
 
   @section('script')
   <script type="text/javascript">

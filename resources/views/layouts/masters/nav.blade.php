@@ -23,8 +23,19 @@
                 <li><a href="#"><i class="fa fa-question fa-lg"></i><br/>Rencana Ulaon Adat</a></li>
                 <li><a href="{{ url('/informasi_kegiatan') }}"><i class="fa fa-calendar fa-lg"></i><br/>Kegiatan</a></li>
                 <li><a href="{{ url('/pengurus_punguan') }}"><i class="fa fa-users fa-lg"></i><br/>Pengurus Punguan</a></li>
-                <li><a href="{{ url('/category') }}"><i class="fa fa-book fa-lg"></i><br/>Kategori</a></li>
+                
                 <li><a href="{{ url('/question/posts') }}"><i class="fa fa-reply fa-lg"></i><br/>Post !</a></li>
+                <li class="dropdown">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <i class="fa fa-cog fa-lg"></i><br/>
+                        Pengaturan <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/category') }}"><i class="fa fa-btn fa-book"></i> Kategori</a></li>
+                        <li><a href="{{ url('/slide_gambar') }}"><i class="fa fa-btn fa-image"></i> Slide Gambar</a></li>
+                    </ul>
+                </li>  
 
                 
                 <!-- <li class="dropdown">
